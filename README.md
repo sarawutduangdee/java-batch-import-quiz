@@ -33,11 +33,25 @@ java -cp out com.interview.quiz3.BatchImporterTest
 java -cp out com.interview.quiz3.Main
 ```
 
-Windows PowerShell: ใช้คำสั่ง compile นี้แทน (ส่วนคำสั่ง `java` ใช้เหมือนเดิม)
+Windows (ใช้ **PowerShell** ไม่ใช่ CMD):
 
 ```powershell
+cd quiz1-document-import
+javac -encoding UTF-8 -d out (Get-ChildItem -Recurse src -Filter *.java).FullName
+java -cp out com.interview.quiz1.Main documents.csv
+
+cd ..\quiz2-streaming-batch
 javac -encoding UTF-8 -d out (Get-ChildItem -Recurse src,test -Filter *.java).FullName
+java -cp out com.interview.quiz2.StreamingBatchProcessorTest
+java -Xmx32m -cp out com.interview.quiz2.Main metadata.csv 1000 1000000
+
+cd ..\quiz3-retry-import
+javac -encoding UTF-8 -d out (Get-ChildItem -Recurse src,test -Filter *.java).FullName
+java -cp out com.interview.quiz3.BatchImporterTest
+java -cp out com.interview.quiz3.Main
 ```
+
+> ต้องใส่ `-encoding UTF-8` เสมอ เพราะ comment ในโค้ดเป็นภาษาไทย
 
 หรือเปิดแต่ละโฟลเดอร์ใน IntelliJ IDEA แล้วตั้ง `src` (และ `test`) เป็น source root
 
