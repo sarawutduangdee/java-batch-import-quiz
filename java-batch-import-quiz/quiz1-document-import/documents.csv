@@ -1,0 +1,11 @@
+id,fileName,documentType,status,retryCount
+DOC-001,invoice_2026_001.pdf,INVOICE,PENDING,0
+DOC-002,contract_A.pdf,CONTRACT,FAILED,1
+DOC-003,receipt_01.jpg,RECEIPT,SUCCESS,0
+DOC-004,scan_old.tif,ID_CARD,FAILED,3
+DOC-005,memo.docx,MEMO,PENDING,0
+DOC-006,,INVOICE,FAILED,2
+DOC-007,report_q3.pdf,REPORT,PENDING,0
+DOC-008,broken_line.pdf,INVOICE
+DOC-009,photo.png,ID_CARD,UNKNOWN,0
+DOC-010,statement.pdf,,PENDING,0
