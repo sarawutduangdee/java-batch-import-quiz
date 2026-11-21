@@ -53,6 +53,16 @@ java -cp out com.interview.quiz3.Main
 
 > ต้องใส่ `-encoding UTF-8` เสมอ เพราะ comment ในโค้ดเป็นภาษาไทย
 
+> **ถ้าเจอ `UnsupportedClassVersionError`** แปลว่า `javac` กับ `java` คนละเวอร์ชันกัน
+> (มักเกิดบน Windows ที่ติดตั้ง Java 8 ไว้ และ `C:\Program Files (x86)\Common Files\Oracle\Java\java8path` อยู่ใน PATH ก่อน JDK ที่ใหม่กว่า)
+> ตรวจด้วย `java -version` และ `javac -version` แล้วแก้ได้ 2 ทาง
+>
+> 1. คอมไพล์ให้ได้ class ของ Java 8 โดยเพิ่ม `--release 8` (ใช้ได้กับ JDK 9 ขึ้นไป)
+>    ```powershell
+>    javac --release 8 -Xlint:-options -encoding UTF-8 -d out (Get-ChildItem -Recurse src,test -Filter *.java).FullName
+>    ```
+> 2. หรือรันด้วย `java` ของ JDK ตัวเดียวกับ `javac` เช่น `& "$env:JAVA_HOME\bin\java" -cp out ...`
+
 หรือเปิดแต่ละโฟลเดอร์ใน IntelliJ IDEA แล้วตั้ง `src` (และ `test`) เป็น source root
 
 ---
